@@ -36,7 +36,7 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.0",
     "resolve": "1.6.0",
-    "semantic-ui-react": "^0.80.1",
+    "semantic-ui-react": "^0.80.2",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
@@ -49,9 +49,6 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
-  },
-  "resolutions": {
-    "@babel/runtime": "7.0.0-beta.46"
   },
   "proxy": "http://localhost:5000/",
   "jest": {
