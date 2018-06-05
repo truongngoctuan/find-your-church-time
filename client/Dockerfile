@@ -1,9 +1,12 @@
 FROM node:10.3.0-alpine as builder
 ENV NODE_ENV production
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
 
+# copy package.json to fetch npm
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent
+
+# copy the rest to build project
 COPY . .
 
 # Build for production.
