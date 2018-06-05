@@ -14,4 +14,4 @@ RUN npm install -g serve
 # Set the command to start the node server.
 CMD serve -s build
 
-EXPOSE 80
+EXPOSE 3000
