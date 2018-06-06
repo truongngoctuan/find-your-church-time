@@ -1,15 +1,23 @@
 .App {
   /* text-align: center; */
-  padding: 7px;
+  /* padding: 7px; */
 }
 
 .App .pusher{
   min-height: 500px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 25px;
+}
+
+.menu-bar {
+  height: 50px;
+
 }
 /* 
 .App-header {

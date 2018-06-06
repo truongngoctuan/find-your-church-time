@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
-import { Button, Accordion, Icon } from 'semantic-ui-react'
+import { Button, Accordion, Icon, Transition } from 'semantic-ui-react'
+import ProvinceItem from './Contents/ProvinceItem';
+
+import provinces from './Data/provinces'
 
 class PageContent extends Component {
     state = {
-        response: [],
+        provinces: provinces,
         activeIndex: 0,
     };
 
+    handleClick = (e, titleProps) => {
+        const { index } = titleProps
+        const { activeIndex } = this.state
+        const newIndex = activeIndex === index ? -1 : index
+
+        this.setState({ activeIndex: newIndex })
+    }
+
     render() {
-        const { activeIndex, visible } = this.state
+        const { activeIndex, provinces } = this.state
 
         return (
-            <div>
-                <Accordion styled>
-                    <Accordion.Title
-                        active={activeIndex === 0} index={0} onClick={this.handleClick}>
-                        <Icon name="dropdown"></Icon>
-                        hello world accordion!!!
-          </Accordion.Title>
-                    <Accordion.Content active={activeIndex === 0}>
-                        <p>asdf asdf adsf asdf asdf adsf.</p>
-                    </Accordion.Content>
-                    <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
-                        <Icon name="dropdown"></Icon>
-                        hello world accordionasd fasdf adf adsf
-          </Accordion.Title>
-                    <Accordion.Content active={activeIndex === 1}>
-                        <p>asdf asdf adsf asdf asdf adsf.</p>
-                    </Accordion.Content>
-                </Accordion>
-            </div>
+            <Accordion styled fluid>
+                {provinces.map((obj, idx) => <ProvinceItem index={idx} title={obj.title} content={obj.content}
+                    active={idx == activeIndex} onClick={this.handleClick}>
+                </ProvinceItem>)}
+            </Accordion>
         );
     }
 }

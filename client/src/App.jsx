@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button, Accordion, Icon, Sidebar, Segment, Menu } from 'semantic-ui-react'
+import { Button, Icon, Sidebar, Segment, Menu } from 'semantic-ui-react'
 import MenuBar from "./Components/MenuBar";
 import SideMenu from "./Components/SideMenu";
 import PageContent from './Components/PageContent';
@@ -31,13 +31,7 @@ class App extends Component {
     return body;
   };
 
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps
-    const { activeIndex } = this.state
-    const newIndex = activeIndex === index ? -1 : index
 
-    this.setState({ activeIndex: newIndex })
-  }
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
@@ -46,7 +40,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Sidebar.Pushable as={Segment}
+        <Sidebar.Pushable
         >
           <Sidebar as={Menu}
             animation='overlay'
@@ -61,9 +55,11 @@ class App extends Component {
           <Sidebar.Pusher
             onClick={visible ? this.toggleVisibility : null}
             dimmed={visible}
+            className=""
           >
             <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
             <PageContent activeIndex="activeIndex"></PageContent>
+
           </Sidebar.Pusher>
         </Sidebar.Pushable>
 
