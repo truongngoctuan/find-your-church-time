@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Accordion, Icon, Transition } from 'semantic-ui-react'
+import { Accordion } from 'semantic-ui-react'
 import ProvinceItem from './Contents/ProvinceItem';
 
 import provinces from './Data/provinces'
@@ -7,7 +7,7 @@ import provinces from './Data/provinces'
 class PageContent extends Component {
     state = {
         provinces: provinces,
-        activeIndex: 0,
+        activeIndex: this.props.activeIndex,
     };
 
     handleClick = (e, titleProps) => {
@@ -23,8 +23,8 @@ class PageContent extends Component {
 
         return (
             <Accordion styled fluid>
-                {provinces.map((obj, idx) => <ProvinceItem index={idx} title={obj.title} content={obj.content}
-                    active={idx == activeIndex} onClick={this.handleClick}>
+                {provinces.map((obj, idx) => <ProvinceItem key={idx} index={idx} title={obj.title} churches={obj.churches}
+                    active={idx === activeIndex} onClick={this.handleClick}>
                 </ProvinceItem>)}
             </Accordion>
         );

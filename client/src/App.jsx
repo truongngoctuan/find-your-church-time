@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button, Icon, Sidebar, Segment, Menu } from 'semantic-ui-react'
+import { Sidebar, Menu } from 'semantic-ui-react'
 import MenuBar from "./Components/MenuBar";
 import SideMenu from "./Components/SideMenu";
 import PageContent from './Components/PageContent';
@@ -8,7 +8,7 @@ import PageContent from './Components/PageContent';
 class App extends Component {
   state = {
     response: [],
-    activeIndex: 0,
+    activeIndex: 2,
     visible: false,
   };
 
@@ -58,7 +58,7 @@ class App extends Component {
             className=""
           >
             <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
-            <PageContent activeIndex="activeIndex"></PageContent>
+            <PageContent activeIndex={activeIndex}></PageContent>
 
           </Sidebar.Pusher>
         </Sidebar.Pushable>

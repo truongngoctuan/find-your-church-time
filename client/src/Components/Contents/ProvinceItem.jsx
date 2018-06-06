@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Accordion, Icon } from 'semantic-ui-react'
+import { Accordion, Icon, SegmentGroup } from 'semantic-ui-react'
+import ChurchItem from './ChurchItem';
 
 class ProvinceItem extends Component {
     render() {
-        const { active, index, title, content, onClick } = this.props
+        const { active, index, title, churches, onClick } = this.props
 
         return (
             <div>
@@ -13,7 +14,9 @@ class ProvinceItem extends Component {
                     {title}
                 </Accordion.Title>
                 <Accordion.Content active={active}>
-                    <p>{content}</p>
+                    <SegmentGroup>
+                        {churches.map((obj, idx) => <ChurchItem key={idx} name={obj.name} weekDays={obj.weekDays} sunday={obj.sunday}></ChurchItem>)}
+                    </SegmentGroup>
                 </Accordion.Content>
             </div>
         );
