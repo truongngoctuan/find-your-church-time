@@ -1,5 +1,10 @@
 .App {
   /* text-align: center; */
+  padding: 7px;
+}
+
+.App .pusher{
+  min-height: 500px;
 }
 
 .App-logo {

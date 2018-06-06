@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Menu, Button, Accordion, Icon } from 'semantic-ui-react'
+import { Button, Accordion, Icon, Sidebar, Segment, Menu } from 'semantic-ui-react'
 import MenuBar from "./Components/MenuBar";
-
-// import { stateOptions } from './common.js'
+import SideMenu from "./Components/SideMenu";
+import PageContent from './Components/PageContent';
 
 class App extends Component {
   state = {
     response: [],
-    activeIndex: 0
+    activeIndex: 0,
+    visible: false,
   };
-  
+
   componentDidMount() {
     // this.callApi()
     //   .then(res => {
@@ -38,30 +39,33 @@ class App extends Component {
     this.setState({ activeIndex: newIndex })
   }
 
+  toggleVisibility = () => this.setState({ visible: !this.state.visible })
+
   render() {
-    const { activeIndex } = this.state
+    const { activeIndex, visible } = this.state
 
     return (
       <div className="App">
-        <MenuBar></MenuBar>
- 
-        <Accordion styled>
-          <Accordion.Title
-           active={activeIndex === 0} index={0} onClick={this.handleClick}>
-            <Icon name="dropdown"></Icon>
-            hello world accordion!!!
-          </Accordion.Title>
-          <Accordion.Content active={activeIndex === 0}>
-            <p>asdf asdf adsf asdf asdf adsf.</p>
-          </Accordion.Content>
-          <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
-            <Icon name="dropdown"></Icon>
-            hello world accordionasd fasdf adf adsf 
-          </Accordion.Title>
-          <Accordion.Content active={activeIndex === 1}>
-            <p>asdf asdf adsf asdf asdf adsf.</p>
-          </Accordion.Content>
-        </Accordion>
+        <Sidebar.Pushable as={Segment}
+        >
+          <Sidebar as={Menu}
+            animation='overlay'
+            width='thin'
+            icon='labeled'
+            vertical
+            inverted
+            visible={visible}
+          >
+            <SideMenu></SideMenu>
+          </Sidebar>
+          <Sidebar.Pusher
+            onClick={visible ? this.toggleVisibility : null}
+            dimmed={visible}
+          >
+            <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
+            <PageContent activeIndex="activeIndex"></PageContent>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
 
       </div>
     );
