@@ -4,20 +4,20 @@ var provinces = [{
         churches: [{
                 id: 1,
                 name: "chur A",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 2,
                 name: "chur B",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 3,
                 name: "chur C",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             }
         ]
     },
@@ -27,20 +27,20 @@ var provinces = [{
         churches: [{
                 id: 1,
                 name: "chur A",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 2,
                 name: "chur B",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 3,
                 name: "chur C",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             }
         ]
     },
@@ -50,20 +50,20 @@ var provinces = [{
         churches: [{
                 id: 1,
                 name: "chur A",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 2,
                 name: "chur B",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 3,
                 name: "chur C",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             }
         ]
     },
@@ -73,20 +73,20 @@ var provinces = [{
         churches: [{
                 id: 1,
                 name: "chur A",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 2,
                 name: "chur B",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 3,
                 name: "chur C",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             }
         ]
     },
@@ -96,20 +96,20 @@ var provinces = [{
         churches: [{
                 id: 1,
                 name: "chur A",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 2,
                 name: "chur B",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 3,
                 name: "chur C",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             }
         ]
     },
@@ -119,20 +119,20 @@ var provinces = [{
         churches: [{
                 id: 1,
                 name: "chur A",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 2,
                 name: "chur B",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             },
             {
                 id: 3,
                 name: "chur C",
-                weekDays: [6, 17.5],
-                sunday: [7, 15.5, 17.5]
+                weekDays: ["6:00", "17:30"],
+                sunday: ["7:00", "15:00", "17:30"]
             }
         ]
     }
