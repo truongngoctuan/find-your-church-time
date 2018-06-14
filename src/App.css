@@ -1,10 +1,9 @@
-.App {
-  /* text-align: center; */
-  /* padding: 7px; */
-}
+/* .App {
+} */
 
 .App .pusher {
-  min-height: 500px;
+  min-height: 100vh;
+
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -14,28 +13,3 @@
   animation: App-logo-spin infinite 20s linear;
   height: 25px;
 }
-
-.menu-bar {
-  height: 50px;
-}
-
-/* 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
