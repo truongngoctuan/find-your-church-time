@@ -10,7 +10,7 @@ class ChurchItem extends Component {
     }
 
     render() {
-        const { id, name, weekDays, sunday } = this.props
+        const { name, weekDays, sunday } = this.props
         return (
             <Segment className="ui grid church-item">
                 <p>{name}</p>
