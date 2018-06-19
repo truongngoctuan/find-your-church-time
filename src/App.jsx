@@ -4,6 +4,7 @@ import { Sidebar, Menu } from 'semantic-ui-react'
 import MenuBar from "./Components/MenuBar";
 import SideMenu from "./Components/SideMenu";
 import PageContent from './Components/PageContent';
+import Swipeable from "react-swipeable";
 
 class App extends Component {
   state = {
@@ -35,6 +36,11 @@ class App extends Component {
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
+  handleSwipeRight = () => {
+    console.log("adsf")
+    this.toggleVisibility()
+  }
+
   render() {
     const { activeIndex, visible } = this.state
 
@@ -52,15 +58,19 @@ class App extends Component {
           >
             <SideMenu></SideMenu>
           </Sidebar>
-          <Sidebar.Pusher
-            onClick={visible ? this.toggleVisibility : null}
-            dimmed={visible}
-            className=""
-          >
-            <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
-            <PageContent activeIndex={activeIndex}></PageContent>
+          <Swipeable
+            onSwipedRight={this.handleSwipeRight}>
+            <Sidebar.Pusher
+              onClick={visible ? this.toggleVisibility : null}
+              dimmed={visible}
+              className=""
+            >
+              <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
+              <PageContent activeIndex={activeIndex}></PageContent>
 
-          </Sidebar.Pusher>
+            </Sidebar.Pusher>
+          </Swipeable>
+
         </Sidebar.Pushable>
 
       </div>
