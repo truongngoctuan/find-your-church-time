@@ -24,6 +24,6 @@ COPY --from=builder ["/usr/src/app/build", "./build"]
 RUN npm install -g serve
 
 # Set the command to start the node server.
-CMD serve -s build
+CMD serve -s build -l 80
 
-EXPOSE 3000
+EXPOSE 80
