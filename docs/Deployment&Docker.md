@@ -9,7 +9,7 @@ docker pull node:10.3.0-alpine
 ## Build image
 
 ```sh
-docker build -t chu_client:0.1.0 ./client
+docker build -t church_client:0.1.0 .
 ```
 
 > expose port 3000 for `serve`
@@ -17,5 +17,5 @@ docker build -t chu_client:0.1.0 ./client
 ## Run image
 
 ```sh
-docker run -d -p 3001:3000 chu_client:0.1.0
+docker run -d -p 3001:3000 church_client:0.1.0
 ```
