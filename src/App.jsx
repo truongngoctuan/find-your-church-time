@@ -4,12 +4,16 @@ import { Sidebar, Menu } from 'semantic-ui-react'
 import MenuBar from "./Components/MenuBar";
 import SideMenu from "./Components/SideMenu";
 import PageContent from './Components/PageContent';
+import Swipeable from "react-swipeable";
 
 class App extends Component {
   state = {
     response: [],
     activeIndex: 2,
+
+    //side-menu-visible
     visible: false,
+    cancelNextToggleVisibility: false
   };
 
   componentDidMount() {
@@ -31,15 +35,36 @@ class App extends Component {
     return body;
   };
 
+  toggleVisibility = (cancelNextToggleVisibility) => this.setState({ visible: !this.state.visible, cancelNextToggleVisibility: cancelNextToggleVisibility })
 
+  handleSwipeRight = () => this.toggleVisibility(true)
 
-  toggleVisibility = () => this.setState({ visible: !this.state.visible })
+  /**
+   * whenever swipeable trying to do its thing, an click event also be triggered, seem to be a bug of react-swipeable
+   *
+   * @memberof App
+   */
+  handleClickToggleVisibility = () => {
+    if (this.state.visible && !this.state.cancelNextToggleVisibility) {
+      this.toggleVisibility(false)
+    }
+    else {
+      this.setState({ cancelNextToggleVisibility: false })
+    }
+
+  }
 
   render() {
     const { activeIndex, visible } = this.state
 
     return (
-      <div className="App">
+      <Swipeable className="App"
+        trackMouse
+        preventDefaultTouchmoveEvent
+        stopPropagation
+        onSwipedRight={this.handleSwipeRight}
+      >
+
         <Sidebar.Pushable
         >
           <Sidebar as={Menu}
@@ -53,17 +78,18 @@ class App extends Component {
             <SideMenu></SideMenu>
           </Sidebar>
           <Sidebar.Pusher
-            onClick={visible ? this.toggleVisibility : null}
+            onClick={this.handleClickToggleVisibility}
             dimmed={visible}
-            className=""
           >
-            <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
+            <MenuBar toggleVisibility={() => this.toggleVisibility(false)}></MenuBar>
             <PageContent activeIndex={activeIndex}></PageContent>
 
           </Sidebar.Pusher>
+
         </Sidebar.Pushable>
 
-      </div>
+
+      </Swipeable>
     );
   }
 }
