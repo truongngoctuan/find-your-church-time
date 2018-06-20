@@ -10,7 +10,10 @@ class App extends Component {
   state = {
     response: [],
     activeIndex: 2,
+
+    //side-menu-visible
     visible: false,
+    cancelNextToggleVisibility: false
   };
 
   componentDidMount() {
@@ -32,20 +35,42 @@ class App extends Component {
     return body;
   };
 
+  toggleVisibility(cancelNextToggleVisibility) {
+    this.setState({ visible: !this.state.visible, cancelNextToggleVisibility: cancelNextToggleVisibility })
+  }
 
+  handleSwipeRight() {
+    this.toggleVisibility(true)
+  }
 
-  toggleVisibility = () => this.setState({ visible: !this.state.visible })
+  /**
+   * whenever swipable trying to do its thing, an click event also be triggered, seem to be a bug of react-swipeable
+   *
+   * @memberof App
+   */
+  handleClickToggleVisibility() {
+    if (this.state.visible && !this.state.cancelNextToggleVisibility) {
+      this.toggleVisibility(false)
+    }
+    else {
+      this.setState({ cancelNextToggleVisibility: false })
+    }
 
-  handleSwipeRight = () => {
-    console.log("adsf")
-    this.toggleVisibility()
   }
 
   render() {
-    const { activeIndex, visible } = this.state
+    const { activeIndex, visible, visibleSource } = this.state
 
     return (
-      <div className="App">
+      <Swipeable className="App"
+        trackMouse
+        preventDefaultTouchmoveEvent
+        stopPropagation
+        onSwipedRight={() => this.handleSwipeRight()}
+        onSwipingRight={() => { }}
+        onTap={(e) => { e.stopPropagation() }}
+      >
+
         <Sidebar.Pushable
         >
           <Sidebar as={Menu}
@@ -58,22 +83,20 @@ class App extends Component {
           >
             <SideMenu></SideMenu>
           </Sidebar>
-          <Swipeable
-            onSwipedRight={this.handleSwipeRight}>
-            <Sidebar.Pusher
-              onClick={visible ? this.toggleVisibility : null}
-              dimmed={visible}
-              className=""
-            >
-              <MenuBar toggleVisibility={this.toggleVisibility}></MenuBar>
-              <PageContent activeIndex={activeIndex}></PageContent>
+          <Sidebar.Pusher
+            onClick={() => this.handleClickToggleVisibility()}
+            dimmed={visible}
+          >
+            <div>{this.state.visible === true ? "true" : "false"}</div>
+            <MenuBar toggleVisibility={() => this.toggleVisibility("CLICK")}></MenuBar>
+            <PageContent activeIndex={activeIndex}></PageContent>
 
-            </Sidebar.Pusher>
-          </Swipeable>
+          </Sidebar.Pusher>
 
         </Sidebar.Pushable>
 
-      </div>
+
+      </Swipeable>
     );
   }
 }
