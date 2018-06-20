@@ -14,8 +14,8 @@ class ChurchItem extends Component {
         return (
             <Segment className="ui grid church-item">
                 <p>{name}</p>
-                <div className="row">Weekdays: {weekDays.map((obj, idx) => <Label color="teal" key={idx}>{this.formatTime(obj)}</Label>)}</div>
-                <div className="row">Sunday: {sunday.map((obj, idx) => <Label color="blue" key={idx}>{this.formatTime(obj)}</Label>)}</div>
+                <div className="row">Weekdays {weekDays.map((obj, idx) => <Label color="teal" key={idx}>{this.formatTime(obj)}</Label>)}</div>
+                <div className="row">Sunday {sunday.map((obj, idx) => <Label color="blue" key={idx}>{this.formatTime(obj)}</Label>)}</div>
             </Segment>
         );
     }
