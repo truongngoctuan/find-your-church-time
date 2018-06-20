@@ -44,7 +44,7 @@ class App extends Component {
         >
           <Sidebar as={Menu}
             animation='overlay'
-            width='thin'
+            width='wide'
             icon='labeled'
             vertical
             inverted

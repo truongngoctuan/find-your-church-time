@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Button } from "semantic-ui-react";
+import { Menu, Icon, Button, Checkbox } from "semantic-ui-react";
 
 import logo from '../logo.svg';
 
@@ -19,6 +19,9 @@ class MenuBar extends Component {
                     <img src={logo} className="App-logo" alt="logo" />
                 </Menu.Item>
 
+                <Menu.Item className="right">
+                    <Checkbox toggle></Checkbox>
+                </Menu.Item>
             </Menu>
         );
     }
